@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
+/*   Updated: 2022/12/22 13:28:15 by lagonzal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 typedef struct s_list
 {
-	int		*number;
-	unsigned	*order;
-	struct	s_list	*next;
+	int				*number;
+	unsigned		*order;
+	struct s_list	*next;
 }	t_list;
 
 void	ft_swap(t_list **stack, char c, int i);

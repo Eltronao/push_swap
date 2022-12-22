@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 13:19:48 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/22 13:22:32 by lagonzal         ###   ########.fr       */
+/*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
+/*   Updated: 2022/12/22 16:16:19 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(t_list **stack, char c, int i)
-{
-	t_list	*aux;
+#include <stdio.h>
+#include "push_swap.h"
 
-	aux = *stack->next;
-	*stack->next = stack->next->next;
-	aux->next = *stack;
-	*stack = aux;
-	if (i != 0)
-		ft_printf("s%c\n");
+int	main(int argc, char **argl)
+{
+	t_list	**stack1;
+
+	//printf("1: %s, 2:%s", argl[1], argl[2]);
+	*stack1 = ft_check_input(argc, argl);
+	return(0);
 }
