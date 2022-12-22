@@ -6,7 +6,7 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:11 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/22 18:47:59 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:12:38 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,23 @@ int ft_num_limits(char *num)
 
     len = int ft_strlen(num);
     if (num[0] == '-')
+    {    
         if (len < 11)
             return (1);
         else if(len != 11)
             return(0);
-        else
-        {    
-            if(0 < ft_strncmp(num, "-2147483648", 11));
+        else if(0 < ft_strncmp(num, "-2147483648", 11));
                 return(0);
-        }
+    }
     else
+    {    
         if (len < 10)
             return (1);
         else if(len != 10)
             return (0);
-        else
-        {    
-            if(0 < ft_strncmp(num, "2147483647", 10));
+        else if(0 < ft_strncmp(num, "2147483647", 10));
                 return(0);
-        }
+    }
     return (1);
 }
 
@@ -98,13 +96,14 @@ t_list  *ft_in_check_2(char **list)
         {
             if (list[n][m] == ' ')
                 spaces++;
-            if (!(ft_isdigit(list[n][m])) && list[n][m] != ' ' && list[n][m] != '-')
+            if (!(ft_isdigit(list[n][m])) && list[n][m] != ' ' && list[n][m] != '-' && list[n][m]!= '+')
                 return (0);
         }
     }
     if (n > 1 && spaces >= 1)
         return (0);
-    if (ft_check_same_num(list) != 0)
+    if (ft_check_nums(list))
         return(0);
-    return (ft_make_list(list));
+    //return (ft_make_list(list));
+    return(1);
 }
