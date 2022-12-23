@@ -1,7 +1,5 @@
-char    ft_error(int e_type)
+char    ft_error(void)
 {
-    if (e_type == 0)
-        write(0, "Error. No parameters detected. Aborting\n", 40);
-    else if (e_type == 1)
-        write (0, "Error. Parameter format is not valid. Aborting\n", 47);
+    write(0, "Error\n", 6);
+    return (NULL);
 }
