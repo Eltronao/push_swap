@@ -6,7 +6,7 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/23 18:11:52 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:54:06 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 int	main(int argc, char **argl)
 {
-	//t_list	**stack1;
+	t_list	**stack1;
 
-	//printf("1: %s, 2:%s", argl[1], argl[2]);
-	printf("%p\n", ft_check_input(argc, argl));
-	/*if (!*stack)
-	{	
+	stack1 = NULL;
+	*stack1 = ft_check_input(argc, argl);
+	if (!*stack1)
 		write(0, "Error\n", 6);
-		return(1);
-	}*/
+	ft_top_order(stack1);
+	ft_print_lst(stack1);
+	ft_freelst(stack1);
 	return(0);
 }

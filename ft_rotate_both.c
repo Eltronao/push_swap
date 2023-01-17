@@ -6,13 +6,15 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:37 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/22 13:20:54 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:36:10 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 void	rot_both(t_list **stack1, t_list **stack2)
 {
-	ft_rot(stack1, a, 0);
-	ft_rot(stack2, b, 0);
+	ft_rot(stack1, 'a', 0);
+	ft_rot(stack2, 'b', 0);
 	write(1, "rr\n", 3);
 }

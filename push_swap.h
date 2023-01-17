@@ -6,7 +6,7 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/23 18:39:13 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:56:49 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,21 @@ int		ft_num_limits(char	*num);
 int		ft_check_nums(char **list);
 int		ft_num_form(char *num);
 
+// Functions for creating or destroying the list
+
+t_list	*ft_makelst(char **lst);
+t_list	*ft_freelst(t_list **lst);
+
+//Order
+
+void	ft_top_order(t_list **stack1);
+int		ft_cont_in_pos(t_list **stack, int n);
+void	ft_order_3(t_list **stack);
+int		ft_find_ins(t_list **stack_a, t_list **stack_b);
+void	ft_order_5(t_list **stack_a, int listsize);
+void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n);
+
+// Others
+
+void ft_print_lst(t_list **stack1);
 #endif

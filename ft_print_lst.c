@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   ft_print_lst.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 13:19:41 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:50:14 by lagonzal         ###   ########.fr       */
+/*   Created: 2023/01/17 11:55:37 by lagonzal          #+#    #+#             */
+/*   Updated: 2023/01/17 12:09:59 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-void	ft_rot(t_list **stack, char c, int i)
+void    ft_print_lst(t_list **stack1)
 {
-	t_list	*first;
+    t_list  *aux;
 
-	first = *stack;
-	*stack = first->next;
-	first->next = NULL;
-	ft_lstadd_back(stack, first);
-	if (i != 0)
-		ft_printf("p%c\n", c);
+    aux = *stack1;
+    while (aux)
+    {
+        printf("%d\n", aux->*content);
+        aux = aux->next;
+    }
 }

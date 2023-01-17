@@ -6,9 +6,11 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:34 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/12/22 13:21:05 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:13:39 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft/libft.h"
 
 void	ft_rev_rot(t_list **stack, char c, int i)
 {
@@ -19,12 +21,12 @@ void	ft_rev_rot(t_list **stack, char c, int i)
 	now = prev->next;
 	while (now->next)
 	{
-		prev = now
+		prev = now;
 		now = now->next;
 	}
 	prev->next = NULL;
 	now->next = *stack;
 	*stack = now;
 	if (i != 0)
-		ft_printf("rr%c\n",c);
+		ft_printf("rr%c\n", c);
 }
