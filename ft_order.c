@@ -21,7 +21,7 @@ int	ft_cont_in_pos(t_list **stack, int n)
 	while (n-- > 1 && aux)
 		aux = aux->next;
 	if (aux)
-		return(*aux->content);
+		return(aux->content);
 	else
 		return (0);
 }
@@ -54,7 +54,7 @@ int	ft_find_ins(t_list **stack_a, t_list **stack_b)
 	b = *stack_b;
 	aux = *stack_a;
 	n = 1;
-	while (*aux->content < *b->content && aux)
+	while (aux->content < b->content && aux)
 	{
 		aux = aux->next;
 		n++;

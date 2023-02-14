@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:56:49 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:26:19 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-/*typedef struct s_list
-{
-	int				*number;
-	unsigned		*order;
-	struct s_list	*next;
-}	t_list;
-*/
 
 // Functions for moving the elements froms one stack to another
 
@@ -57,5 +50,6 @@ void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n);
 
 // Others
 
-void ft_print_lst(t_list **stack1);
+void ft_print_lst(t_list **stack);
+
 #endif

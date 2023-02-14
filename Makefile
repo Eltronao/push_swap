@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+         #
+#    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/01/17 13:04:05 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/02/13 18:53:36 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS = ft_check_input.c \
 	   ft_rotate.c\
 	   ft_swap_both.c\
 	   ft_swap.c\
-	   ft_make_list.c
+	   ft_make_list.c\
+	   ft_print_lst.c
 
 OBJS = ft_check_input.o \
 	   ft_num_format.o\
@@ -40,7 +41,8 @@ OBJS = ft_check_input.o \
 	   ft_rotate.o\
 	   ft_swap_both.o\
 	   ft_swap.o\
-	   ft_make_list.o
+	   ft_make_list.o\
+	   ft_print_lst.o
 
 LIB_DIR = libft
 
@@ -48,7 +50,7 @@ LIB = libft.a
 
 INCLUDE = -I $(LIB_DIR)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 RM = rm
 
@@ -73,5 +75,5 @@ fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIB_DIR)
 re: fclean all
-	$(MAKE) fclean -C $(LIB_DIR)
+
 .PHONY: all clean fclean re

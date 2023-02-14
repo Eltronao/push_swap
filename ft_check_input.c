@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 11:52:01 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/14 20:04:39 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,25 @@ t_list	*ft_check_input(int argc, char **argl)
 t_list	*ft_in_case_1(char *list)
 {
 	char	**splited;
+	t_list	*stack;
 
 	splited = ft_split((const char *) list, ' ');
 	if (!splited)
-		return (0);
-	return (ft_in_case_2(splited));
+		return (NULL);
+	stack = ft_in_case_2(splited);
+	ft_my_double_free(splited);
+	if (!stack)
+		return(NULL);
+	return (stack);
 }
 
 t_list	*ft_in_case_2(char **list)
 {
 	if (!(ft_check_nums(list)))
+	{
+		printf("Devuelve NULL\n");
 		return (NULL);
+	}	
 	printf("el input esta bien\n");
 	return (ft_makelst(list));
 }

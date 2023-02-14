@@ -3,15 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_make_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:23:59 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 13:37:39 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:54:28 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
+#include <stdio.h>
+
+
+
+
+t_list	*ft_create(int	num)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return(NULL);
+	new->content = num;
+	new->index = 0;
+	new->next = NULL;
+	return(new);
+}
 
 t_list  *ft_makelst(char **lst)
 {
@@ -19,14 +36,15 @@ t_list  *ft_makelst(char **lst)
     t_list  *aux;
     t_list  *temp;
     int     n;
-    int     num;
 
     n = 0;
-    first = ft_lstnew(ft_atoi(lst[0]));
+    printf("a\n");
+    first = ft_create(ft_atoi(lst[0]));
     aux = first;
+    printf("a\n");
     while (lst[++n])
     {
-        temp = ft_ft_lstnew(ft_atoi(lst[n]));
+        temp = ft_create(ft_atoi(lst[n]));
         aux->next = temp;
         aux = aux->next;
     }
@@ -38,14 +56,15 @@ t_list  *ft_freelst(t_list **lst)
     t_list  *prev;
 
     prev = *lst;
-    now = *lst->next;
+    now = prev->next;
     while (now != NULL)
     {
         free(prev);
         prev = now;
         now = now->next;
     }
-    return (free(prev), NULL);
+    free(prev);
+    return (free(lst), NULL);
 }
 
 
