@@ -20,10 +20,11 @@ void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n)
 
 	r = 1;
 	a_size = ft_lstsize(*stack_a);
-	while (a_size > n++)
+	while (a_size > n - 1)
 	{
 		ft_rev_rot(stack_a, 'a', 1);
 		r++;
+		n++;
 	}
 	ft_push(stack_b, stack_a, 'b');
 	while (r--)

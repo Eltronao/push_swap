@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:41 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:50:14 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:20:38 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_rot(t_list **stack, char c, int i)
 	first->next = NULL;
 	ft_lstadd_back(stack, first);
 	if (i != 0)
-		ft_printf("p%c\n", c);
+		ft_printf("r%c\n", c);
 }

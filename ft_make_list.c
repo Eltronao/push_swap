@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:23:59 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/14 19:54:28 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:15:58 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ t_list  *ft_makelst(char **lst)
     int     n;
 
     n = 0;
-    printf("a\n");
+    printf("construyendo la lista\n");
     first = ft_create(ft_atoi(lst[0]));
     aux = first;
-    printf("a\n");
     while (lst[++n])
     {
         temp = ft_create(ft_atoi(lst[n]));

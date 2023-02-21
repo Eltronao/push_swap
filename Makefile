@@ -6,7 +6,7 @@
 #    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/02/13 18:53:36 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/02/21 18:14:09 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 SRCS = ft_check_input.c \
 	   ft_num_format.c\
-	   ft_push_swap.c\
+	   00_main.c\
 	   ft_top_order.c\
 	   ft_order.c\
 	   ft_insert.c\
@@ -30,7 +30,7 @@ SRCS = ft_check_input.c \
 
 OBJS = ft_check_input.o \
 	   ft_num_format.o\
-	   ft_push_swap.o\
+	   00_main.o\
 	   ft_top_order.o\
 	   ft_order.o\
 	   ft_insert.o\

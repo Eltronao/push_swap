@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/14 20:04:39 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:18:21 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	ft_num_limits(char *num)
 
 	if (num[0] == '+')
 		num++;
-	printf("%c\n", num[0]);
 	len = (int) ft_strlen(num);
 	if (num[0] == '-')
 	{
