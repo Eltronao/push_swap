@@ -13,6 +13,7 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 
+
 void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n)
 {
 	int	a_size;
@@ -26,7 +27,7 @@ void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n)
 		r++;
 		n++;
 	}
-	ft_push(stack_b, stack_a, 'b');
+	ft_push(stack_b, stack_a, 'a');
 	while (r--)
 		ft_rot(stack_a, 'a', 1);
 }

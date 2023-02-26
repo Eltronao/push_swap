@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   00_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/14 20:04:58 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/26 11:08:36 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,22 @@ int	main(int argc, char **argl)
 {
 	t_list	**stack;
 
-	stack = malloc(sizeof(t_list**));
-	*stack = ft_check_input(argc, argl);
-	if (!*stack)
+	if (argc > 1)
 	{
-		write(0, "Error\n", 6);
-		free(stack);
-		return(1);
+		stack = malloc(sizeof(t_list**));
+		*stack = ft_check_input(argc, argl);
+		if (!*stack)
+		{
+			write(0, "Error\n", 6);
+			free(stack);
+			return(1);
+		}
+		else
+		{
+			//printf("%d\n", ft_lstsize(*stack));
+			ft_top_order(stack);
+			ft_freelst(stack);
+		}
+		return(0);
 	}
-	else
-	{
-		ft_top_order(stack);
-		ft_print_lst(stack);
-		ft_freelst(stack);
-	}
-	return(0);
 }

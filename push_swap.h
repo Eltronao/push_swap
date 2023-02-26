@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:56:46 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:56:35 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+#include <stdio.h>
 
 // Functions for moving the elements froms one stack to another
 
@@ -43,13 +44,15 @@ t_list	*ft_freelst(t_list **lst);
 
 void	ft_top_order(t_list **stack1);
 int		ft_cont_in_pos(t_list **stack, int n);
-void	ft_order_3(t_list **stack);
+void	ft_order_3(t_list **stack, int size);
 int		ft_find_ins(t_list **stack_a, t_list **stack_b);
-void	ft_order_5(t_list **stack_a, int listsize);
+void	ft_order_5(t_list **stack_a, t_list **stack_b, int size);
 void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n);
+void	ft_order_mid(t_list **stack_a, t_list **stack_b);
 
 // Others
 
-void ft_print_lst(t_list **stack);
+void    ft_print_lst(t_list **stack);
+int     ft_is_ordered(t_list **stack);
 
 #endif

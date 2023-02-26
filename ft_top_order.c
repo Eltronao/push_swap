@@ -6,26 +6,58 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:06:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/21 19:01:51 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:41:20 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+#include "stdio.h"
 
-void ft_top_order(t_list **stack1)
+void ft_index(t_list **stack);
+
+void ft_top_order(t_list **stack_a)
 {
-    int n;
+    int     n;
+    t_list  *stack_b;
 
-	ft_print_lst(stack1);
-    n = ft_lstsize(*stack1);
-    if (n == 1)
-        n = 1;
-    else if (n <= 3)
-        ft_order_3(stack1);
-    else if (n <= 5)
-        ft_order_5(stack1, n);
-    //else
-      //  n = 3;
-        //ft_order_big(stack1);
+    stack_b = NULL;
+	//ft_print_lst(stack);
+    n = ft_lstsize(*stack_a);
+    //printf("%d\n", n);
+    if (n > 1)
+    {
+        ft_index(stack_a);
+        if (n < 4)
+            ft_order_3(stack_a, n);
+        else if (n < 6)
+            ft_order_5(stack_a, &stack_b, n);
+        else if (n < 51)
+            ft_order_mid(stack_a, &stack_b);
+        //else if (n > 50)
+            //ft_order_big(stack_a, &stack_b);
+    }
+}
+
+
+void ft_index(t_list **stack)
+{
+    t_list *aux1;
+    t_list *aux2;
+
+    aux1 = *stack;
+    
+    while (aux1)
+    {
+        aux2 = aux1->next;
+        while (aux2)
+        {
+            if (aux1->content > aux2->content)
+                aux1->index += 1;
+            else
+                aux2->index += 1;
+            aux2 = aux2->next;
+        }
+        aux1 = aux1->next;
+    }
 }

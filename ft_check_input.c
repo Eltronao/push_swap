@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:18:21 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:25:59 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ t_list	*ft_in_case_1(char *list)
 {
 	char	**splited;
 	t_list	*stack;
+	int		n = 0;
 
 	splited = ft_split((const char *) list, ' ');
 	if (!splited)
 		return (NULL);
+	while (splited[n])
+		n++;
+	//printf("%d\n", n);
 	stack = ft_in_case_2(splited);
 	ft_my_double_free(splited);
 	if (!stack)
@@ -50,7 +54,7 @@ t_list	*ft_in_case_2(char **list)
 		printf("Devuelve NULL\n");
 		return (NULL);
 	}	
-	printf("el input esta bien\n");
+	//printf("el input esta bien\n");
 	return (ft_makelst(list));
 }
 
@@ -75,6 +79,7 @@ int	ft_check_nums(char **list)
 		}
 		while (list[++m])
 		{
+			//printf("%d %s :  %d %s \n", n, list[n], m, list[m]);
 			if (m != n && (!ft_strncmp(list[n], list[m], 11)))
 			{
 				printf("numero repetido\n");
