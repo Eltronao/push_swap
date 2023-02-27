@@ -6,7 +6,7 @@
 #    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/02/25 12:58:53 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/02/27 21:51:21 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,12 @@ SRCS = ft_check_input.c \
 	   ft_swap_both.c \
 	   ft_swap.c \
 	   ft_make_list.c \
-	   ft_print_lst.c
+	   ft_print_lst.c \
+	   ft_is_ordered.c \
+	   ft_lst_pos.c \
+	   ft_chunks.c
+
+	   #ft_order_big.c \
 
 OBJS = ft_check_input.o \
 	   ft_num_format.o \
@@ -44,7 +49,11 @@ OBJS = ft_check_input.o \
 	   ft_swap_both.o \
 	   ft_swap.o \
 	   ft_make_list.o \
-	   ft_print_lst.o
+	   ft_print_lst.o\
+	   ft_is_ordered.o\
+	   ft_lst_pos.o \
+	   ft_chunks.o
+	   #ft_order_big.o \
 
 LIB_DIR = libft
 

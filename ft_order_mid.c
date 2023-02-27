@@ -49,6 +49,8 @@ int	ft_search_i(t_list **stack, int i)
 		aux = aux->next;
 		pos++;
 	}
+	if (!aux)
+		return (0);
 	return (pos);
 }
 
@@ -77,6 +79,5 @@ void	ft_push_back(t_list **stack_a, t_list ** stack_b)
 	while (*stack_b)
 	{	
 		ft_push(stack_b, stack_a, 'a');
-		ft_print_lst(stack_a);
 	}
 }

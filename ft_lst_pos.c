@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_ordered.c                                    :+:      :+:    :+:   */
+/*   ft_lst_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 12:15:39 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/25 12:15:39 by lagonzal         ###   ########.fr       */
+/*   Created: 2023/02/26 22:02:27 by lagonzal          #+#    #+#             */
+/*   Updated: 2023/02/26 22:02:27 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_is_ordered(t_list **stack, int mode)
+void    ft_lst_pos(t_list **stack_a, int pos, int size)
 {
-	t_list	*now;
-	t_list	*next;
-
-	now = *stack;
-	next = now->next;
-	if (mode == 0)
-	{
-		while (next)
-		{
-			if (now->content > next->content)
-				return(0);
-			now = now->next;
-			next = next->next;
-		}
-		return (1);
-	}
-	while (next)
-	{
-		if (now->content < next->content)
-			return(0);
-		now = now->next;
-		next = next->next;
-	}
-	return (1);
-
+    if (pos <= size / 2)
+    {
+	    while (pos != 1)
+	    {
+		    ft_rot(stack_a, 'a', 1);
+		    pos--;
+	    }
+    }
+    else
+    {
+	    while (pos <= size)
+	    {
+		    ft_rev_rot(stack_a, 'a', 1);
+		    pos++;
+	    }
+    }
 }

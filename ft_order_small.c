@@ -51,7 +51,7 @@ void	ft_order_3(t_list **stack, int size)
 			ft_swap(stack, 'a', 1);
 		}
 	}
-	else
+	else if (size > 1)
 	{
 		if (ft_cont_in_pos(stack, 2) < ft_cont_in_pos(stack, 1))
 			ft_swap(stack, 'a', 1);
