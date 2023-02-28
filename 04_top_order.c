@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_top_order.c                                     :+:      :+:    :+:   */
+/*   04_top_order.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:06:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/27 23:01:51 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/28 23:12:40 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ void ft_top_order(t_list **stack_a)
             ft_order_3(stack_a, n);
         else if (n < 6)
             ft_order_5(stack_a, &stack_b, n);
-        else
-            ft_chunks(stack_a, &stack_b, 0);
+        else if (n < 101)
+            ft_order_mid(stack_a, &stack_b, n, 2);
+        //else
+            //ft_order_big(stack_a, &stack_b, n, 4);
     }
 }
 

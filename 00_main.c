@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/27 22:58:49 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/28 23:09:57 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	main(int argc, char **argl)
 			// }
 			ft_freelst(stack);
 		}
-		return(0);
 	}
+	return(0);
 }

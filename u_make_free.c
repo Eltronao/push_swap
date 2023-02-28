@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_make_list.c                                     :+:      :+:    :+:   */
+/*   u_make&free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:23:59 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/25 14:30:22 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:52:46 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 #include <stdio.h>
-
-
-
 
 t_list	*ft_create(int	num)
 {

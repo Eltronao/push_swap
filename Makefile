@@ -6,54 +6,44 @@
 #    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/02/27 21:51:21 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/02/28 23:25:39 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = ft_check_input.c \
-	   ft_num_format.c \
-	   00_main.c \
-	   ft_top_order.c \
-	   ft_order_small.c \
-	   ft_order_mid.c \
-	   ft_insert.c \
-	   ft_push.c \
-	   ft_reverse_rotate_both.c \
-	   ft_reverse_rotate.c \
-	   ft_rotate_both.c \
-	   ft_rotate.c \
-	   ft_swap_both.c \
-	   ft_swap.c \
-	   ft_make_list.c \
-	   ft_print_lst.c \
-	   ft_is_ordered.c \
-	   ft_lst_pos.c \
-	   ft_chunks.c
+SRCS = 00_main.c\
+		01_check_input.c\
+		02_is_ordered.c\
+		03_num_format.c\
+		04_top_order.c\
+		05_order_small.c\
+		06_order_mid.c\
+		moves_push.c\
+		moves_reverse_rotate.c\
+		moves_rotate.c\
+		moves_swap.c\
+		u_extraction.c\
+		u_find_in_chunk.c\
+		u_make_free.c\
+		u_print_lst.c
 
-	   #ft_order_big.c \
 
-OBJS = ft_check_input.o \
-	   ft_num_format.o \
-	   00_main.o \
-	   ft_top_order.o \
-	   ft_order_small.o \
-	   ft_order_mid.o \
-	   ft_insert.o \
-	   ft_push.o \
-	   ft_reverse_rotate_both.o \
-	   ft_reverse_rotate.o \
-	   ft_rotate_both.o \
-	   ft_rotate.o \
-	   ft_swap_both.o \
-	   ft_swap.o \
-	   ft_make_list.o \
-	   ft_print_lst.o\
-	   ft_is_ordered.o\
-	   ft_lst_pos.o \
-	   ft_chunks.o
-	   #ft_order_big.o \
+OBJS = 00_main.o\
+		01_check_input.o\
+		02_is_ordered.o\
+		03_num_format.o\
+		04_top_order.o\
+		05_order_small.o\
+		06_order_mid.o\
+		moves_push.o\
+		moves_reverse_rotate.o\
+		moves_rotate.o\
+		moves_swap.o\
+		u_extraction.o\
+		u_find_in_chunk.o\
+		u_make_free.o\
+		u_print_lst.o
 
 LIB_DIR = libft
 

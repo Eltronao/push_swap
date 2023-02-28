@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   moves_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:48 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:50:38 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/27 23:48:48 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ void	ft_swap(t_list **stack, char c, int i)
 	*stack = second;
 	if (i != 0)
 		ft_printf("s%c\n", c);
+}
+
+void	ft_swap_both(t_list **stack1, t_list **stack2)
+{
+	ft_swap(stack1, 'a', 0);
+	ft_swap(stack2, 'b', 0);
+	write(1, "ss\n", 3);
 }

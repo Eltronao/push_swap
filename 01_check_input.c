@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_input.c                                   :+:      :+:    :+:   */
+/*   01check_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/25 13:25:59 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:04:22 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 #include <stdio.h>
+
+t_list	*ft_in_case_1(char *list);
+t_list	*ft_in_case_2(char **list);
+int	ft_check_nums(char **list);
+int	ft_num_limits(char *num);
 
 t_list	*ft_check_input(int argc, char **argl)
 {
