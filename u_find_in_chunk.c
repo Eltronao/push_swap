@@ -28,11 +28,11 @@ void	ft_moves_to_extract(t_list **stack_b, t_small *sm_bg)
 	if (sm_bg->small < size / 2)
 		t_sm = sm_bg->small + 1;
 	else
-		t_sm = size - sm_bg->small + 2;
+		t_sm = size - sm_bg->small;
 	if (sm_bg->big < size / 2)
 		t_bg = sm_bg->big;
 	else
-		t_bg = size - sm_bg->big + 2;
+		t_bg = size - sm_bg->big;
 	if (t_bg <= t_sm)
 		sm_bg->small = 0;
 	else

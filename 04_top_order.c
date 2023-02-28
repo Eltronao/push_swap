@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:06:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/28 23:12:40 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:45:50 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ void ft_top_order(t_list **stack_a)
             ft_order_5(stack_a, &stack_b, n);
         else if (n < 101)
             ft_order_mid(stack_a, &stack_b, n, 2);
-        //else
-            //ft_order_big(stack_a, &stack_b, n, 4);
+        else
+            ft_order_big(stack_a, &stack_b, n, 4);
     }
 }
-
 
 void ft_index(t_list **stack)
 {

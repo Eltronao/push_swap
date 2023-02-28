@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/28 23:21:09 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:39:39 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_top_order(t_list **stack_a);
 void	ft_order_3(t_list **stack, int size);
 void	ft_order_5(t_list **stack_a, t_list **stack_b, int lstsize);
 void	ft_order_mid(t_list **stack_a, t_list **stack_b, int size, int t_max);
+void	ft_order_big(t_list **stack_a, t_list **stack_b, int size, int t_max);
 
 /*======================== UTILS ========================*/ 
 
@@ -64,5 +65,7 @@ void	ft_insert_back(t_list **stack_a, t_list **stack_b, int n);
 //Finding biggest and smallest nodes in stack_b
 
 void	ft_find_big_small(t_list **stack_b, t_small *sm_bg);
+
+int ft_is_ordered(t_list **stack, int mode);
 
 #endif

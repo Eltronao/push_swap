@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-void	ft_big_push(t_list **stack_a, t_list**stack_b, int min, int max);
-int		ft_some_left(t_list **stack_a, int min, int max);
-void	ft_push_back(t_list **stack_a, t_list **stack_b);
-void	ft_rearrange(t_list **stack_a, int max, int t, int max_times);
+static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t);
+static int	ft_some_left(t_list **stack_a, int min, int max);
+static void	ft_push_back(t_list **stack_a, t_list **stack_b);
+static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times);
 
 void	ft_order_mid(t_list **stack_a, t_list **stack_b, int size, int t_max)
 {
@@ -25,13 +25,13 @@ void	ft_order_mid(t_list **stack_a, t_list **stack_b, int size, int t_max)
 	int	min;
 	int	max;
 
-	median = size / 2;
+	median = size / t_max;
 	t = 1;
 	min = 0;
 	max = median;
 	while (t <= t_max)
 	{
-		ft_big_push(stack_a, stack_b, min, max);
+		ft_pb(stack_a, stack_b, min, max, t);
 		ft_push_back(stack_a, stack_b);
 		ft_rearrange(stack_a, max, t, t_max);
 		t++;
@@ -40,21 +40,30 @@ void	ft_order_mid(t_list **stack_a, t_list **stack_b, int size, int t_max)
 	}
 }
 
-void	ft_big_push(t_list **stack_a, t_list**stack_b, int min, int max)
+static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t)
 {
 	t_list *aux;
+	int		rot;
 
+	rot = 0;
 	while (ft_some_left(stack_a, min, max))
 	{
 		aux = *stack_a;
 		if (aux->index >= min && aux->index < max)
 			ft_push(stack_a, stack_b, 'b');
 		else if (aux->index >= max)
+		{	
 			ft_rot(stack_a, 'a', 1);
+			rot++;
+		}
+	}
+	while (t != 1 && rot--)
+	{
+		ft_rev_rot(stack_a, 'a', 1);
 	}
 }
 
-int	ft_some_left(t_list **stack_a, int min, int max)
+static int	ft_some_left(t_list **stack_a, int min, int max)
 {
 	t_list *aux;
 
@@ -63,12 +72,13 @@ int	ft_some_left(t_list **stack_a, int min, int max)
 	{
 		if (aux->index >= min && aux->index < max)
 			return (1);
+		aux = aux->next;
 	}
 	return (0);
 
 }
 
-void	ft_rearrange(t_list **stack_a, int max, int t, int max_times)
+static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times)
 {
 	t_list *aux;
 
@@ -91,13 +101,13 @@ void	ft_rearrange(t_list **stack_a, int max, int t, int max_times)
 	}
 }
 
-void	ft_push_back(t_list **stack_a, t_list **stack_b)
+static void	ft_push_back(t_list **stack_a, t_list **stack_b)
 {
 	struct s_small	sm_bg;
 	int				size;
 
 	size = ft_lstsize(*stack_b);
-	while(size)
+	while(size > 1)
 	{
 		ft_find_big_small(stack_b, &sm_bg);
 		if (sm_bg.big != 0)
@@ -106,4 +116,5 @@ void	ft_push_back(t_list **stack_a, t_list **stack_b)
 			ft_extract_small(stack_a, stack_b, sm_bg.small, size);
 		size--;
 	}
+	ft_push(stack_b, stack_a, 'a');
 }

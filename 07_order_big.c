@@ -12,134 +12,108 @@
 
 #include "push_swap.h"
 
-void	ft_rearrange(t_list **stack_a, int min);
-void	ft_radix_sort1(t_list **stack_a, t_list **stack_b, int min, int max);
-void	ft_find_small(t_list **stack_a, int i, int min, int max,t_small *sm_bg);
-void	ft_radix_sort2(t_list **stack_a, t_list **stack_b, int min, int max);
+static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t);
+static int	ft_some_left(t_list **stack_a, int min, int max);
+static void	ft_push_back(t_list **stack_a, t_list **stack_b);
+static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times);
 
-void    ft_order_big(t_list **stack_a, t_list **stack_b)
+void	ft_order_big(t_list **stack_a, t_list **stack_b, int size, int t_max)
 {
+	int	median;
+	int	t;
 	int	min;
 	int	max;
-	int	d = 0;
-	//t_list *aux;
 
-	min = 1;
-	max = 10;
-	ft_radix_sort1(stack_a, stack_b, min, max);
-	while (!(ft_is_ordered(stack_a)))
- 	{
-		min *= 10;
-		max *= 10;
-		ft_radix_sort2(stack_a, stack_b, min, max);
-		//aux = *stack_a;
-		// printf("===============================\n");
-		// while (aux)
-		// {
-		// 	printf("index: %d, number: %d\n",aux->index, aux->content);
-		// 	aux = aux->next;
-		// }
-		// printf("===============================\n");
-		d++;
-	}
-}
-
-void	ft_radix_sort1(t_list **stack_a, t_list **stack_b, int min, int max)
-{
-	int 			i;
-	struct s_small	sm_bg;
-
-	i = 0;
-	while (i < 9)
+	median = size / t_max;
+	t = 1;
+	min = 0;
+	max = median;
+	while (t <= t_max)
 	{
-		ft_find_small(stack_a, i, min, max, &sm_bg);
-		while (sm_bg.small != 0 || sm_bg.big != 0)
-		{
-			if (sm_bg.big != 0 &&
-				ft_lstsize(*stack_a) - sm_bg.big < sm_bg.small)
-				ft_extract_bot(stack_a, stack_b, 
-					sm_bg.big, ft_lstsize(*stack_a));
-			else if (sm_bg.small != 0)
-				ft_extract_top(stack_a, stack_b, sm_bg.small);
-			ft_find_small(stack_a, i, min, max, &sm_bg);
-		}
-		i++;
+		ft_pb(stack_a, stack_b, min, max, t);
+		ft_push_back(stack_a, stack_b);
+		ft_rearrange(stack_a, max, t, t_max);
+		t++;
+		min += median;
+		max += median;
 	}
-	ft_push_back(stack_a, stack_b);
 }
 
-void	ft_find_small(t_list **stack_a, int i, int min, int max,t_small *sm_bg)
+static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t)
 {
 	t_list *aux;
-	int	pos;
+	int		rot;
 
-	pos = 1;
-	sm_bg->big = 0;
-	sm_bg->small = 0;
-	aux = *stack_a;
-	while (aux && sm_bg->small == 0)
+	rot = 0;
+	while (ft_some_left(stack_a, min, max))
 	{
-		if ((aux->index % max) / min == i)
-			sm_bg->small =	pos;
-		pos++;
-		aux = aux->next;
-	}
-	while (aux)
-	{
-		if ((aux->index % max) / min == i)
-			sm_bg->big =	pos;
-		pos++;
-		aux = aux->next;
-	}
-}
-
-void	ft_radix_sort2(t_list **stack_a, t_list **stack_b, int min, int max)
-{
-	int 			i;
-	struct s_small	sm_bg;
-
-	i = 0;
-	while (i <= 9)
-	{
-		ft_find_small(stack_a, i, min, max, &sm_bg);
-		while (sm_bg.small != 0 && ft_lstsize(*stack_a) > 1)
-		{
-			ft_extract_top(stack_a, stack_b, sm_bg.small);
-			ft_find_small(stack_a, i, min, max, &sm_bg);
+		aux = *stack_a;
+		if (aux->index >= min && aux->index < max)
+			ft_push(stack_a, stack_b, 'b');
+		else if (aux->index >= max)
+		{	
+			ft_rot(stack_a, 'a', 1);
+			rot++;
 		}
-		// t_list *aux = *stack_a;
-		// while (aux)
-		// {
-		// 	printf("index: %d, number: %d\n",aux->index, aux->content);
-		//  	aux = aux->next;
-		// }
-		if (ft_lstsize(*stack_a) > 1)
-			ft_rearrange(stack_a, min);
-		i++;
 	}
-	ft_push_back(stack_a, stack_b);
+	while (t != 1 && rot--)
+	{
+		ft_rev_rot(stack_a, 'a', 1);
+	}
 }
 
-void	ft_rearrange(t_list **stack_a, int min)
+static int	ft_some_left(t_list **stack_a, int min, int max)
 {
 	t_list *aux;
-	int		pos;
-	int		ind;
-	int		n_pos;
 
-	ind = 10;
 	aux = *stack_a;
-	n_pos = 1;
-	pos = 1;
 	while (aux)
 	{
-		if ((aux->index % min) / (min / 10) < ind)
-		{
-			ind = (aux->index % min) / (min / 10);
-			pos = n_pos;
-		}
+		if (aux->index >= min && aux->index < max)
+			return (1);
 		aux = aux->next;
-		n_pos++;
 	}
-	ft_lst_pos(stack_a, pos, ft_lstsize(*stack_a));
+	return (0);
+
+}
+
+static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times)
+{
+	t_list *aux;
+
+	aux = *stack_a;
+	if (t != max_times)
+	{	
+		while (aux->index < max)
+		{
+			ft_rot(stack_a, 'a', 1);
+			aux = *stack_a;
+		}
+	}
+	else
+	{
+		while (aux->index != 0)
+		{
+			ft_rot(stack_a, 'a', 1);
+			aux = *stack_a;
+		}
+	}
+}
+
+static void	ft_push_back(t_list **stack_a, t_list **stack_b)
+{
+	struct s_small	sm_bg;
+	int				size;
+
+	size = ft_lstsize(*stack_b);
+	while(size > 1)
+	{
+		ft_find_big_small(stack_b, &sm_bg);
+		if (sm_bg.big != 0)
+			ft_extract_big(stack_a, stack_b, sm_bg.big, size);
+		else
+			ft_extract_small(stack_a, stack_b, sm_bg.small, size);
+		size--;
+	}
+	ft_push(stack_b, stack_a, 'a');
 }

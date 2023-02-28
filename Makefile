@@ -6,7 +6,7 @@
 #    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/02/28 23:25:39 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/03/01 00:05:57 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = 00_main.c\
 		04_top_order.c\
 		05_order_small.c\
 		06_order_mid.c\
+		07_order_big.c\
 		moves_push.c\
 		moves_reverse_rotate.c\
 		moves_rotate.c\
@@ -26,7 +27,8 @@ SRCS = 00_main.c\
 		u_extraction.c\
 		u_find_in_chunk.c\
 		u_make_free.c\
-		u_print_lst.c
+		u_print_lst.c\
+		ft_insert.c
 
 
 OBJS = 00_main.o\
@@ -36,6 +38,7 @@ OBJS = 00_main.o\
 		04_top_order.o\
 		05_order_small.o\
 		06_order_mid.o\
+		07_order_big.o\
 		moves_push.o\
 		moves_reverse_rotate.o\
 		moves_rotate.o\
@@ -43,7 +46,8 @@ OBJS = 00_main.o\
 		u_extraction.o\
 		u_find_in_chunk.o\
 		u_make_free.o\
-		u_print_lst.o
+		u_print_lst.o\
+		ft_insert.o
 
 LIB_DIR = libft
 
