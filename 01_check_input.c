@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01check_input.c                                    :+:      :+:    :+:   */
+/*   01_check_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/28 20:04:22 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:56:41 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ t_list	*ft_in_case_1(char *list)
 		return (NULL);
 	while (splited[n])
 		n++;
-	//printf("%d\n", n);
 	stack = ft_in_case_2(splited);
 	ft_my_double_free(splited);
 	if (!stack)
@@ -56,10 +55,8 @@ t_list	*ft_in_case_2(char **list)
 {
 	if (!(ft_check_nums(list)))
 	{
-		printf("Devuelve NULL\n");
 		return (NULL);
 	}	
-	//printf("el input esta bien\n");
 	return (ft_makelst(list));
 }
 
@@ -73,23 +70,13 @@ int	ft_check_nums(char **list)
 	{
 		m = -1;
 		if (!ft_num_form(list[n]))
-		{
-			printf("formato incorrecto\n");
 			return (0);
-		}
 		if (!ft_num_limits(list[n]))
-		{
-			printf("numero fuera de limites\n");
 			return (0);
-		}
 		while (list[++m])
 		{
-			//printf("%d %s :  %d %s \n", n, list[n], m, list[m]);
 			if (m != n && (!ft_strncmp(list[n], list[m], 11)))
-			{
-				printf("numero repetido\n");
 				return (0);
-			}
 		}
 	}
 	return (1);

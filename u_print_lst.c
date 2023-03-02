@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:55:37 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/02/28 17:37:44 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:54:26 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 
 void    ft_print_lst(t_list **stack1)
 {
-    t_list  *aux;
-
+    t_list *aux; 
+    
     aux = *stack1;
-    while (aux)
-    {
-        ft_printf("%d\n", aux->content);
-        aux = aux->next;
-    }
+	while (aux)
+	{
+	    ft_printf("index: %d, number: %d\n",aux->index, aux->content);
+	    aux = aux->next;
+	}
+	if (ft_is_ordered(stack1, 0))
+		ft_printf("Well ordered\n");
 }

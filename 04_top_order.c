@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:06:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/03/01 00:45:50 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:48:59 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void ft_top_order(t_list **stack_a)
     t_list  *stack_b;
 
     stack_b = NULL;
-	//ft_print_lst(stack);
     n = ft_lstsize(*stack_a);
-    //printf("%d\n", n);
     if (n > 1)
     {
         ft_index(stack_a);

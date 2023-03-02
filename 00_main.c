@@ -6,7 +6,7 @@
 /*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/03/01 00:43:45 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:53:44 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,12 @@ int	main(int argc, char **argl)
 			free(stack);
 			return(1);
 		}
+		if (ft_is_ordered(stack, 0))
+			ft_freelst(stack);
 		else
 		{
-			//printf("%d\n", ft_lstsize(*stack));
 			ft_top_order(stack);
-			// t_list *aux = *stack;
-			// while (aux)
-			// {
-			// printf("index: %d, number: %d\n",aux->index, aux->content);
-			// aux = aux->next;
-			// }
-			// if (ft_is_ordered(stack, 0))
-			// 	printf("Well ordered\n");
-
-			 ft_freelst(stack);
+			ft_freelst(stack);
 		}
 	}
 	return(0);
