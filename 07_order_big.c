@@ -12,45 +12,44 @@
 
 #include "push_swap.h"
 
-static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t);
+static void	ft_pb(t_list **stack_a, t_list **stack_b, t_small *min_max, int t);
 static int	ft_some_left(t_list **stack_a, int min, int max);
 static void	ft_push_back(t_list **stack_a, t_list **stack_b);
 static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times);
 
 void	ft_order_big(t_list **stack_a, t_list **stack_b, int size, int t_max)
 {
-	int	median;
-	int	t;
-	int	min;
-	int	max;
+	int				median;
+	int				t;
+	struct s_small	min_max;
 
 	median = size / t_max;
 	t = 1;
-	min = 0;
-	max = median;
+	min_max.small = 0;
+	min_max.big = median;
 	while (t <= t_max)
 	{
-		ft_pb(stack_a, stack_b, min, max, t);
+		ft_pb(stack_a, stack_b, &min_max, t);
 		ft_push_back(stack_a, stack_b);
-		ft_rearrange(stack_a, max, t, t_max);
+		ft_rearrange(stack_a, min_max.big, t, t_max);
 		t++;
-		min += median;
-		max += median;
+		min_max.small += median;
+		min_max.big += median;
 	}
 }
 
-static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t)
+static void	ft_pb(t_list **stack_a, t_list**stack_b, t_small *min_max, int t)
 {
-	t_list *aux;
+	t_list	*aux;
 	int		rot;
 
 	rot = 0;
-	while (ft_some_left(stack_a, min, max))
+	while (ft_some_left(stack_a, min_max->small, min_max->big))
 	{
 		aux = *stack_a;
-		if (aux->index >= min && aux->index < max)
+		if (aux->index >= min_max->small && aux->index < min_max->big)
 			ft_push(stack_a, stack_b, 'b');
-		else if (aux->index >= max)
+		else if (aux->index >= min_max->big)
 		{	
 			ft_rot(stack_a, 'a', 1);
 			rot++;
@@ -64,7 +63,7 @@ static void	ft_pb(t_list **stack_a, t_list**stack_b, int min, int max, int t)
 
 static int	ft_some_left(t_list **stack_a, int min, int max)
 {
-	t_list *aux;
+	t_list	*aux;
 
 	aux = *stack_a;
 	while (aux)
@@ -74,12 +73,11 @@ static int	ft_some_left(t_list **stack_a, int min, int max)
 		aux = aux->next;
 	}
 	return (0);
-
 }
 
 static void	ft_rearrange(t_list **stack_a, int max, int t, int max_times)
 {
-	t_list *aux;
+	t_list	*aux;
 
 	aux = *stack_a;
 	if (t != max_times)
@@ -106,7 +104,7 @@ static void	ft_push_back(t_list **stack_a, t_list **stack_b)
 	int				size;
 
 	size = ft_lstsize(*stack_b);
-	while(size > 1)
+	while (size > 1)
 	{
 		ft_find_big_small(stack_b, &sm_bg);
 		if (sm_bg.big != 0)

@@ -25,7 +25,7 @@ int	ft_cont_in_pos(t_list **stack, int n)
 		n -= 1;
 	}
 	if (aux)
-		return(aux->content);
+		return (aux->content);
 	else
 		return (0);
 }
@@ -42,9 +42,8 @@ void	ft_order_3(t_list **stack, int size)
 				ft_swap(stack, 'a', 1);
 			ft_rev_rot(stack, 'a', 1);
 		}
-		
-		else if (ft_cont_in_pos(stack, 3) < ft_cont_in_pos(stack, 2) ||
-			ft_cont_in_pos(stack, 2) > ft_cont_in_pos(stack, 1))
+		else if (ft_cont_in_pos(stack, 3) < ft_cont_in_pos(stack, 2)
+			|| ft_cont_in_pos(stack, 2) > ft_cont_in_pos(stack, 1))
 		{
 			if (ft_cont_in_pos(stack, 3) < ft_cont_in_pos(stack, 2))
 				ft_rev_rot(stack, 'a', 1);
@@ -67,7 +66,7 @@ int	ft_find_ins(t_list **stack_a, t_list **stack_b)
 	b = *stack_b;
 	a = *stack_a;
 	n = 1;
-	while (a && a->content < b->content )
+	while (a && a->content < b->content)
 	{
 		a = a->next;
 		n++;

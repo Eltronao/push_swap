@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   01_check_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
+/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 09:33:24 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/03/02 18:56:41 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:33:16 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 t_list	*ft_in_case_1(char *list);
 t_list	*ft_in_case_2(char **list);
-int	ft_check_nums(char **list);
-int	ft_num_limits(char *num);
+int		ft_check_nums(char **list);
+int		ft_num_limits(char *num);
 
 t_list	*ft_check_input(int argc, char **argl)
 {
@@ -37,17 +37,18 @@ t_list	*ft_in_case_1(char *list)
 {
 	char	**splited;
 	t_list	*stack;
-	int		n = 0;
+	int		n;
 
+	n = 0;
 	splited = ft_split((const char *) list, ' ');
 	if (!splited)
 		return (NULL);
 	while (splited[n])
 		n++;
 	stack = ft_in_case_2(splited);
-	ft_my_double_free(splited);
+	ft_double_free(splited);
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	return (stack);
 }
 

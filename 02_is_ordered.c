@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int ft_is_ordered(t_list **stack, int mode)
+int	ft_is_ordered(t_list **stack, int mode)
 {
 	t_list	*now;
 	t_list	*next;
@@ -24,7 +24,7 @@ int ft_is_ordered(t_list **stack, int mode)
 		while (next)
 		{
 			if (now->content > next->content)
-				return(0);
+				return (0);
 			now = now->next;
 			next = next->next;
 		}
@@ -33,10 +33,9 @@ int ft_is_ordered(t_list **stack, int mode)
 	while (next)
 	{
 		if (now->content < next->content)
-			return(0);
+			return (0);
 		now = now->next;
 		next = next->next;
 	}
 	return (1);
-
 }

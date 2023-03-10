@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+        */
+/*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/03/02 18:53:44 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:32:03 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	main(int argc, char **argl)
 
 	if (argc > 1)
 	{
-		stack = malloc(sizeof(t_list**));
+		stack = malloc(sizeof(t_list **));
 		*stack = ft_check_input(argc, argl);
 		if (!*stack)
 		{
 			write(0, "Error\n", 6);
 			free(stack);
-			return(1);
+			return (1);
 		}
 		if (ft_is_ordered(stack, 0))
 			ft_freelst(stack);
@@ -37,5 +37,5 @@ int	main(int argc, char **argl)
 			ft_freelst(stack);
 		}
 	}
-	return(0);
+	return (0);
 }

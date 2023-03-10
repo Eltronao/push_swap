@@ -14,8 +14,8 @@
 
 void	ft_find_pos(t_list **stack, int limit, t_small *sm_bg);
 void	ft_moves_to_extract(t_list **stack_b, t_small *sm_bg);
-int	ft_find_big(t_list **stack_b);
-int	ft_find_small(t_list **stack_b);
+int		ft_find_big(t_list **stack_b);
+int		ft_find_small(t_list **stack_b);
 void	ft_find_big_small(t_list **stack_b, t_small *sm_bg);
 
 void	ft_moves_to_extract(t_list **stack_b, t_small *sm_bg)
@@ -41,7 +41,7 @@ void	ft_moves_to_extract(t_list **stack_b, t_small *sm_bg)
 
 int	ft_find_big(t_list **stack_b)
 {
-	t_list *aux;
+	t_list	*aux;
 	int		pos;
 	int		ret;
 	int		max;
@@ -60,7 +60,7 @@ int	ft_find_big(t_list **stack_b)
 		pos++;
 		aux = aux->next;
 	}
-	return(ret);
+	return (ret);
 }
 
 int	ft_find_small(t_list **stack_b)
@@ -84,7 +84,7 @@ int	ft_find_small(t_list **stack_b)
 		pos++;
 		aux = aux->next;
 	}
-	return(ret);
+	return (ret);
 }
 
 void	ft_find_big_small(t_list **stack_b, t_small *sm_bg)

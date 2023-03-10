@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lagonzal <larraingonzalez@gmail.com>       +#+  +:+       +#+         #
+#    By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 13:19:53 by lagonzal          #+#    #+#              #
-#    Updated: 2023/03/01 00:05:57 by lagonzal         ###   ########.fr        #
+#    Updated: 2023/03/10 16:07:09 by lagonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,29 +57,31 @@ INCLUDE = -I $(LIB_DIR)
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
-RM = rm
+RM = rm -fr
 
 CC = gcc
 
+%o:%c
+	@$(CC) $(CFLAGS) -c $(SRCS)
+
 all: $(NAME)
 
-%o:%c
-	$(CC) $(CFLAGS) -c $(SRCS)
-
-$(LIB):
-	$(MAKE) -C $(LIB_DIR)
-
-$(NAME): $(OBJS) $(LIB)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDE) $(LIB_DIR)/$(LIB)
+$(NAME): $(OBJS) 
+	@echo "Compiling LIBFT..."
+	@$(MAKE) -C $(LIB_DIR)
+	@echo "Compiling push_swap"
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDE) $(LIB_DIR)/$(LIB)
 
 clean:
-	$(RM) $(OBJS)
-	$(MAKE) clean -C $(LIB_DIR)
+	@echo "cleaning objects"
+	@$(RM) $(OBJS)
+	@$(MAKE) clean -C $(LIB_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
-	$(MAKE) fclean -C $(LIB_DIR)
+	@echo "cleaning executable"
+	@$(RM) $(NAME)
+	@$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
-
+	@echo "Remaking proyect"
 .PHONY: all clean fclean re
