@@ -6,7 +6,7 @@
 /*   By: lagonzal <lagonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:19:57 by lagonzal          #+#    #+#             */
-/*   Updated: 2023/03/10 16:35:47 by lagonzal         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:07:28 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <stdio.h>
 
 typedef struct s_small
 {
